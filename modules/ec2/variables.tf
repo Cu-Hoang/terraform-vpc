@@ -23,7 +23,7 @@ variable "key_name" {
 ################################################################################
 
 variable "public_sg_ids" {
-  description = "Public Security Group IDs for EC2 intances"
+  description = "Public Security Group IDs for EC2 instances"
   type        = list(string)
 }
 
@@ -39,7 +39,7 @@ variable "public_subnets" {
 ################################################################################
 
 variable "private_sg_ids" {
-  description = "Private Security Group IDs for EC2 intances"
+  description = "Private Security Group IDs for EC2 instances"
   type        = list(string)
 }
 
