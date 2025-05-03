@@ -47,8 +47,8 @@ variable "ingress_with_security_group" {
 # Egress rules
 ################################################################################
 
-variable "engress_rules_with_cidr" {
-  description = "Engress rules allowing access from specific CIDRs"
+variable "egress_rules_with_cidr" {
+  description = "Egress rules allowing access from specific CIDRs"
   type = map(object({
     description = string
     from_port   = number
@@ -58,8 +58,8 @@ variable "engress_rules_with_cidr" {
   }))
 }
 
-variable "engress_with_security_group" {
-  description = "Engress rules allowing access from the Security Group"
+variable "egress_with_security_group" {
+  description = "Egress rules allowing access from the Security Group"
   type = map(object({
     description                  = string
     from_port                    = number

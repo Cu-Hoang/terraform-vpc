@@ -41,7 +41,7 @@ resource "aws_vpc_security_group_ingress_rule" "ingress_with_security_group" {
 ################################################################################
 
 resource "aws_vpc_security_group_egress_rule" "egress_with_cidr" {
-  for_each          = var.engress_rules_with_cidr
+  for_each          = var.egress_rules_with_cidr
   security_group_id = aws_security_group.this.id
   description       = each.value.description
   from_port         = each.value.from_port
@@ -51,7 +51,7 @@ resource "aws_vpc_security_group_egress_rule" "egress_with_cidr" {
 }
 
 resource "aws_vpc_security_group_egress_rule" "egress_with_security_group" {
-  for_each                     = var.engress_with_security_group
+  for_each                     = var.egress_with_security_group
   security_group_id            = aws_security_group.this.id
   description                  = each.value.description
   from_port                    = each.value.from_port

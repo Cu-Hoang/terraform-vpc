@@ -69,7 +69,7 @@ variable "public_security_group" {
       ip_protocol = string
       cidr_ipv4   = string
     }))
-    engress_rules_with_cidr = map(object({
+    egress_rules_with_cidr = map(object({
       description = string
       from_port   = number
       to_port     = number
@@ -95,7 +95,7 @@ variable "private_security_group" {
       ip_protocol = string
       cidr_ipv4   = string
     }))
-    engress_rules_with_cidr = map(object({
+    egress_rules_with_cidr = map(object({
       description = string
       from_port   = number
       to_port     = number

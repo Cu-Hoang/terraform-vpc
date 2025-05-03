@@ -22,8 +22,8 @@ module "public_security_group" {
   description                 = var.public_security_group.description
   ingress_rules_with_cidr     = var.public_security_group.ingress_rules_with_cidr
   ingress_with_security_group = {}
-  engress_rules_with_cidr     = var.public_security_group.engress_rules_with_cidr
-  engress_with_security_group = {}
+  egress_rules_with_cidr      = var.public_security_group.egress_rules_with_cidr
+  egress_with_security_group  = {}
 }
 
 ################################################################################
@@ -45,8 +45,8 @@ module "private_security_group" {
       referenced_security_group_id = module.public_security_group.this_security_group_id
     }
   }
-  engress_rules_with_cidr     = var.private_security_group.engress_rules_with_cidr
-  engress_with_security_group = {}
+  egress_rules_with_cidr     = var.private_security_group.egress_rules_with_cidr
+  egress_with_security_group = {}
 }
 
 ################################################################################
