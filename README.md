@@ -92,7 +92,7 @@ public_security_group = {
       cidr_ipv4   = "0.0.0.0/0"
     }
   }
-  engress_rules_with_cidr = {
+  egress_rules_with_cidr = {
     all_out = {
       description = "Allow all outbound"
       from_port   = 0
@@ -111,7 +111,7 @@ private_security_group = {
   name                    = "private-sg-01"
   description             = "Private security group 01"
   ingress_rules_with_cidr = {}
-  engress_rules_with_cidr = {
+  egress_rules_with_cidr = {
     all_out = {
       description = "Allow all outbound"
       from_port   = 0
