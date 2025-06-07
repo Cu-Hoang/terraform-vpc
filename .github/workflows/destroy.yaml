@@ -1,0 +1,39 @@
+name: Terraform Destroy
+
+on:
+  workflow_dispatch:
+
+env:
+  AWS_REGION: ap-southeast-1
+
+jobs:
+  Destroy:
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Configure AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Get Terraform configs
+        run: aws ssm get-parameter --name /lab/terraform --query Parameter.Value --output text > terraform.tfvars
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+      - name: Initialize Terraform
+        run: terraform init
+
+      - name: Destroy Infrastructure
+        run: terraform destroy -auto-approve

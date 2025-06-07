@@ -1,4 +1,13 @@
 terraform {
+  cloud {
+
+    organization = "UITLab"
+
+    workspaces {
+      name = "Lab"
+    }
+  }
+
   required_version = ">=1.11.4"
 
   required_providers {
