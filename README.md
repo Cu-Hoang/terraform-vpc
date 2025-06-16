@@ -174,3 +174,9 @@ terraform apply
 ```bash
 terraform destroy
 ```
+
+## CI/CD Pipeline
+
+<p align="center">
+    <img src="./images/terraform_pipeline.png" alt="ci/cd pipeline"></img>
+</p>
